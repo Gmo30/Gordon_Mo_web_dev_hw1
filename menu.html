@@ -5,41 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Homework 1</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="global.css">
     <style>
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .hamburger span {
+        table th,
+        table td {
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        table th {
+            background-color: rgb(253, 230, 230);
+        }
+
+        table img {
             display: block;
-            width: 24px;
-            height: 2px;
-            background: currentColor;
-            transition: transform 0.25s, opacity 0.25s;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
         }
-
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        table { width: 100%; border-collapse: collapse; }
-        table th, table td { padding: 12px 16px; text-align: left; vertical-align: middle; border-bottom: 1px solid #eee; }
-        table th { background-color: rgb(253, 230, 230); }
-        table img { display: block; width: 200px; height: 200px; object-fit: cover; }
 
         @media (max-width: 640px) {
-            .hamburger { display: flex; }
+            .hamburger {
+                display: flex;
+            }
 
-            table, thead, tbody, th, td, tr { display: block; }
-            thead tr { display: none; }
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none;
+            }
 
             tbody tr {
                 margin: 12px;
@@ -57,9 +68,18 @@
                 font-size: 0.88rem;
             }
 
-            tbody td:last-child { border-bottom: none; }
-            tbody td:first-child { padding-left: 0; text-align: center; }
-            tbody td:first-child::before { display: none; }
+            tbody td:last-child {
+                border-bottom: none;
+            }
+
+            tbody td:first-child {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            tbody td:first-child::before {
+                display: none;
+            }
 
             tbody td::before {
                 content: attr(data-label);
@@ -72,7 +92,12 @@
                 color: #555;
             }
 
-            table img { width: 100%; height: 160px; border-radius: 6px; margin: 0 auto; }
+            table img {
+                width: 100%;
+                height: 160px;
+                border-radius: 6px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -80,12 +105,16 @@
 <body>
     <header>
         <div class="logo">
-            <h1>Molly Tea <img src="images/logo.png" alt="Molly Tea Logo" style="width:50px;height:50px;position: relative; top: 10px;"/></h1>
+            <h1>Molly Tea <img src="images/logo.png" alt="Molly Tea Logo"
+                    style="width:50px;height:50px;position: relative; top: 10px;" /></h1>
         </div>
     </header>
     <nav>
-        <ul>
-            <li style="float:left"><a href="index.html">Home</a></li>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -109,25 +138,35 @@
                 <td data-label="Preview"><img src="images/jasmine_mt.png" alt="Jasmine Milk Tea"></td>
                 <td data-label="Drink">Premium Jasmine Milk Tea</td>
                 <td data-label="Price">$6.99</td>
-                <td data-label="Description">Freshly picked double-petal jasmine from Hengzhou is infused into high-mountain tea through a meticulous seven-step scenting process, allowing the fragrance to penetrate deep into the leaves. Blended with premium milk, the result is a sweet, delicate, and refreshing taste with a long-lasting floral aroma that lingers and returns to pure simplicity.</td>
+                <td data-label="Description">Freshly picked double-petal jasmine from Hengzhou is infused into
+                    high-mountain tea through a meticulous seven-step scenting process, allowing the fragrance to
+                    penetrate deep into the leaves. Blended with premium milk, the result is a sweet, delicate, and
+                    refreshing taste with a long-lasting floral aroma that lingers and returns to pure simplicity.</td>
             </tr>
             <tr>
                 <td data-label="Preview"><img src="images/champaca_mt.png" alt="White Champaca Milk Tea"></td>
                 <td data-label="Drink">White Champaca Milk Tea</td>
                 <td data-label="Price">$6.99</td>
-                <td data-label="Description">Mengding high mountain tea from Ya'an, Sichuan, is scented with fresh flowers, leaving no trace of petals—only the elegant aroma of orchids. Delicately fragrant with a lingering finish, it's then blended with premium milk for a fresh, mellow, and silky-smooth taste.</td>
+                <td data-label="Description">Mengding high mountain tea from Ya'an, Sichuan, is scented with fresh
+                    flowers, leaving no trace of petals—only the elegant aroma of orchids. Delicately fragrant with a
+                    lingering finish, it's then blended with premium milk for a fresh, mellow, and silky-smooth taste.
+                </td>
             </tr>
             <tr>
                 <td data-label="Preview"><img src="images/osmanthus_mt.png" alt="Osmanthus Milk Tea"></td>
                 <td data-label="Drink">Osmanthus Milk Tea</td>
                 <td data-label="Price">$6.99</td>
-                <td data-label="Description">High-mountain mist nurtures the tender Longjing, picked fresh — one bud, one leaf — then gently blended with golden osmanthus. The tea exudes a bright, refined aroma, while the sweet scent of osmanthus lingers.</td>
+                <td data-label="Description">High-mountain mist nurtures the tender Longjing, picked fresh — one bud,
+                    one leaf — then gently blended with golden osmanthus. The tea exudes a bright, refined aroma, while
+                    the sweet scent of osmanthus lingers.</td>
             </tr>
             <tr>
                 <td data-label="Preview"><img src="images/mango.webp" alt="Jasmine Mango Smoothie"></td>
                 <td data-label="Drink">Jasmine Mango Smoothie</td>
                 <td data-label="Price">$7.99</td>
-                <td data-label="Description">Jasmine-scented tea blended into a cool, creamy mango smoothie, mixed with fresh, sweet mango and juicy grapefruit, all combined with smooth coconut milk. Packed with abundant fruit pulp, every bite delivers a natural fruity texture.</td>
+                <td data-label="Description">Jasmine-scented tea blended into a cool, creamy mango smoothie, mixed with
+                    fresh, sweet mango and juicy grapefruit, all combined with smooth coconut milk. Packed with abundant
+                    fruit pulp, every bite delivers a natural fruity texture.</td>
             </tr>
         </tbody>
     </table>
@@ -142,27 +181,16 @@
             <div>
                 <h3>Social Media</h3>
                 <p><a href="https://www.instagram.com/mollytea_global/">Instagram</a></p>
-                <p><a href="https://www.douyin.com/user/MS4wLjABAAAA_Ru-9VC248Ojr5IiOSsab9L-AK68vwXuS57Ar2aiDTC-alnEKDCBsjv2NRge1_rG">Douyin</a></p>
+                <p><a
+                        href="https://www.douyin.com/user/MS4wLjABAAAA_Ru-9VC248Ojr5IiOSsab9L-AK68vwXuS57Ar2aiDTC-alnEKDCBsjv2NRge1_rG">Douyin</a>
+                </p>
             </div>
         </div>
         <hr style="color:#FFFFFF;" />
         <p>&copy; 2026 Molly Tea. All rights reserved.</p>
     </footer>
 
-    <script>
-        const btn = document.getElementById('hamburger');
-        const menu = document.getElementById('nav-menu');
-        btn.addEventListener('click', () => {
-            const isOpen = menu.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.setAttribute('aria-expanded', isOpen);
-        });
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            menu.classList.remove('open');
-            btn.classList.remove('open');
-            btn.setAttribute('aria-expanded', false);
-        }));
-    </script>
+    <script src="hamburger.js"></script>
 </body>
 
 </html>

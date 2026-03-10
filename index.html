@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Homework 1</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap"
@@ -18,8 +19,11 @@
         </div>
     </header>
     <nav>
-        <ul>
-            <li style="float:left"><a href="index.html">Home</a></li>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -68,6 +72,7 @@
         <hr style="color: #FFFFFF;" />
         <p>&copy; 2026 Molly Tea. All rights reserved.</p>
     </footer>
+    <script src="hamburger.js"></script>
 
 </body>
 
